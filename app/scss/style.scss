@@ -4,123 +4,270 @@
 @import 'global';
 
 .header {
-  &__inner {
+  .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 60px 0 60px 5px;
+
+    .logo,
+    .footer-top__logo {
+      border-radius: 5px;
+      transition: opacity 0.5s, box-shadow 0.5s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px $accent-color;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
+    }
+
+    .logo {
+      margin-right: 467px;
+    }
+
+    .menu {
+      &__list {
+        display: flex;
+      }
+
+      &__list-item:not(:last-child) {
+        margin-right: 45px;
+      }
+
+      &__list-link {
+        font-size: 18px;
+        line-height: 21px;
+        text-decoration-line: none;
+      }
+
+      &__list-link--active {
+        color: $accent-color;
+      }
+    }
+
+    .user-nav {
+      display: flex;
+
+      &__link {
+        position: relative;
+        padding: 10px;
+        border-radius: 5px;
+        line-height: 14px;
+        border: 1px solid transparent;
+        stroke: transparent;
+        transition: box-shadow 0.5s, border-color 0.5s, background-color 0.5s, stroke 0.5s, color 0.5s;
+
+        &:hover {
+          background-color: $hover-color;
+          border-color: $hover-color;
+
+          & ellipse,
+          & path {
+            stroke: $animation-color;
+          }
+
+          .user-nav__num {
+            color: $hover-color;
+            background-color: $animation-color;
+          }
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px $accent-color;
+          background-color: rgba(255, 122, 80, 0.1);
+        }
+
+        &:active {
+          background-color: $social-link-bg;
+        }
+      }
+
+      &__list:not(:last-child) {
+        margin-right: 11px;
+      }
+
+      &__num {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: $accent-color;
+        top: 7px;
+        right: 2px;
+        font-size: 10px;
+        color: $social-link-bg;
+        text-align: center;
+        line-height: 14px;
+      }
+    }
+  }
+
+  .header-content {
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__info {
+      max-width: 450px;
+      vertical-align: middle;
+    }
+
+    &__title {
+      @extend %rubik-500;
+      font-size: 66px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      color: $title-color;
+      margin-bottom: 20px;
+
+      .header-content__subtitle {
+        color: $accent-color;
+      }
+    }
+
+    &__text {
+      margin-bottom: 20px;
+    }
+
+    &__btn {
+      padding: 8px 30px;
+      margin-right: 28px;
+    }
   }
 }
 
-.logo,
-.footer-top__logo {
-  border-radius: 5px;
-  transition: opacity 0.5s, box-shadow 0.5s;
+.categories {
+  text-align: center;
 
-  &:hover {
-    opacity: 0.8;
+  &__title {
+    margin-bottom: 60px;
   }
 
-  &:focus {
-    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+  &__menu {
+    margin-bottom: 45px;
   }
 
-  &:active {
-    opacity: 0.5;
-  }
-}
-
-.logo {
-  margin-right: 467px;
-}
-
-.menu {
   &__list {
     display: flex;
   }
 
-  &__list-item:not(:last-child) {
-    margin-right: 45px;
+  &__item:not(:last-child) {
+    margin-right: 20px;
   }
 
-  &__list-link {
-    font-size: 18px;
-    line-height: 21px;
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 32px;
     border-radius: 5px;
-    transition: color 0.5s, text-shadow 0.5s, box-shadow 0.5s;
+    background-color: $animation-color;
+    color: $title-color;
+    line-height: 130%;
+    box-shadow: 0 0 0 1px $link-color;
+    transition: color 0.5s, background-color 0.5s, box-shadow 0.5s, fill 0.5s;
+
+    & svg {
+      margin-right: 10px;
+    }
 
     &:hover {
       color: $accent-color;
+      background-color: rgba(255, 122, 80, 0.1);
+      box-shadow: 0 0 0 2px $accent-color;
+
+      & path {
+        fill: $accent-color;
+      }
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      background-color: $animation-color;
+      box-shadow: 0 0 0 2px $accent-color;
     }
 
     &:active {
-      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+      background-color: $animation-color;
+      box-shadow: inset 0 -5px 12px rgba(255, 104, 56, 0.2);
     }
+
   }
 
-  &__list-link--active {
-    color: $accent-color;
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 60px;
   }
-}
 
-.user-nav {
-  display: flex;
-
-  &__link {
-    position: relative;
-    padding: 10px;
+  &__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+    padding: 20px 15px;
+    background-color: $animation-color;
+    box-shadow: 0 0 0 1px $link-color;
     border-radius: 5px;
-    line-height: 14px;
-    border: 1px solid transparent;
-    stroke: transparent;
-    transition: box-shadow 0.5s, border-color 0.5s, background-color 0.5s, stroke 0.5s, color 0.5s;
+    transition: background-color 0.5s, box-shadow 0.5s;
 
     &:hover {
-      background-color: $hover-color;
-      border-color: $hover-color;
-
-      & ellipse,
-      & path {
-        stroke: #FFFFFF;
-      }
-
-      .user-nav__num {
-        color: $hover-color;
-        background-color: #FFFFFF;
-      }
+      background-color: $animation-color;
+      box-shadow: 0 0 0 1px $accent-color;
     }
 
-    &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
-      background-color: rgba(255, 122, 80, 0.1);
-    }
-
-    &:active {
-      background-color: #FFF2ED;
+    & img {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 10px;
     }
   }
 
-  &__list:not(:last-child) {
-    margin-right: 11px;
-  }
-
-  &__num {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
+  &__items-btn {
+    font-size: 14px;
+    line-height: 130%;
+    color: $animation-color;
+    padding: 7px 16px;
     background-color: $accent-color;
-    top: 7px;
-    right: 2px;
-    font-size: 10px;
-    color: #FFFFFF;
-    text-align: center;
-    line-height: 14px;
+    border-radius: 6px;
   }
+
+  &__text {
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 18px;
+    color: $default-color;
+    margin-bottom: 10px;
+  }
+
+  &__price {
+    @extend %rubik-500;
+    font-size: 15px;
+    line-height: 140%;
+    color: $title-color;
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
+
+  .mixitup-control-active {
+    background-color: $accent-color;
+    border-radius: 5px;
+    padding: 13px 32px;
+    color: $animation-color;
+
+    & path {
+      fill: $animation-color;
+    }
+  }
+
 }
 
 .footer {
@@ -147,8 +294,8 @@
           height: 44px;
           margin-bottom: 12px;
           padding: 13px 15px;
-          background-color: #FFFFFF;
-          border: 1px solid #C2C2C2;
+          background-color: $animation-color;
+          border: 1px solid $input-color;
           border-radius: 5px;
           transition: box-shadow 0.5s;
 
@@ -167,7 +314,7 @@
         .footer-top__form-input::placeholder {
           font-size: 14px;
           line-height: 1.3;
-          color: #C2C2C2;
+          color: $input-color;
           opacity: 0.9;
           transition: color 0.5s;
         }
@@ -175,46 +322,12 @@
         .footer-top__form-btn {
           width: 100%;
           height: 44px;
-          background-color: $accent-color;
-          color: #FFFFFF;
-          border-radius: 5px;
-          transition: color 0.5s, fill 0.5s, box-shadow 0.5s, background-color 0.5s;
-          
-          &:hover {
-            background-color: #FFFFFF;
-            box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
 
-            & path {
-              fill: $accent-color;
-            }
-
-            & span {
-              color: $accent-color;
-            }
-          }
-
-          &:focus {
-            background: rgba(255, 122, 80, 0.1);
-            box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
-
-            & path {
-              fill: $accent-color;
-            }
-
-            & span {
-              color: $accent-color;
-            }
-          }
-
+          &:hover,
+          &:focus,
           &:active {
-            background-color: #FFF2ED;
-
             & path {
               fill: $accent-color;
-            }
-
-            & span {
-              color: $accent-color;
             }
           }
 
@@ -230,7 +343,7 @@
           }
 
           path {
-            fill: #FFFFFF;
+            fill: $animation-color;
           }
         }
       }
@@ -281,7 +394,7 @@
         position: relative;
         width: 39px;
         height: 39px;
-        background-color: #ECECEC;
+        background-color: $link-color;
         border-radius: 50%;
         border: 1px solid transparent;
         transition: background-color 0.5s, border-color 0.5s, fill 0.5s,
@@ -292,21 +405,21 @@
           border-color: $hover-color;
 
           & path {
-            fill: #FFFFFF;
+            fill: $animation-color;
           }
         }
 
         &:focus {
-          box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
-          background-color: #FFF2ED;
+          box-shadow: 0 0 0 2px $accent-color;
+          background-color: $social-link-bg;
 
           & path {
-            fill: #31352B;
+            fill: $default-color;
           }
         }
 
         &:active {
-          background-color: #FFF2ED;
+          background-color: $social-link-bg;
 
           & path {
             fill: $hover-color;

@@ -342,6 +342,87 @@
   }
 }
 
+.restorant {
+  text-align: center;
+
+  &__title {
+    margin-bottom: 45px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 30px;
+  }
+}
+
+.restorant-card {
+  text-align: start;
+  width: 370px;
+  height: 100%;
+  border-radius: 10px;
+  background-color: $animation-color;
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    box-shadow: 0 3px 15px rgba(255, 104, 56, 0.5);
+  }
+
+  &__img {
+    margin-bottom: 18px;
+  }
+
+  &__text {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 130%;
+    margin-left: 20px;
+    margin-bottom: 17px;
+  }
+
+  &__time {
+    font-size: 18px;
+    line-height: 30px;
+    opacity: 0.9;
+    margin-right: 109px;
+
+    & svg {
+      width: 18px;
+      height: 20px;
+      vertical-align: middle;
+      margin-left: 20px;
+      margin-right: 8px;
+    }
+  }
+
+  &__btn {
+    padding: 2px 32px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    
+    & svg {
+      width: 14px;
+      height: 12px;
+      fill: $animation-color;
+      transition: transform 0.5s;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      & svg {
+        fill: $accent-color;
+      }
+    }
+
+    &:hover {
+      & svg {
+        transform: translateX(20px);
+      }
+    }
+  }
+}
+
 .footer {
   padding-top: 60px;
 }

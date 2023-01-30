@@ -7,6 +7,13 @@ $bg-color: #F9FAFF;
 $hover-color: #FF7A50;
 $social-link-bg: #FFF2ED;
 $animation-color: #FFFFFF;
+$delivery-color: #00AAFF;
+$resturent-color: #FF2222;
+
+%text-style {
+  font-size: 18px;
+  line-height: 130%;
+}
 
 %rubik-300 {
   font-family: 'Rubik', sans-serif;

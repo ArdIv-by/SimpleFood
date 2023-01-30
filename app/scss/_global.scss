@@ -77,16 +77,11 @@ body {
    border-radius: 6px;
    color: $animation-color;
    background-color: $accent-color;
-   transition: background-color 0.5s, box-shadow 0.5s, color 0.5s, opacity 0.5s;
+   transition: background-color 0.5s, box-shadow 0.5s, color 0.5s;
 
    &:hover,
    &:focus {
      box-shadow: 0 0 0 2px $accent-color;
-     opacity: 0.7;
-   }
-
-   &:hover,
-   &:focus {
      color: $accent-color;
    }
 

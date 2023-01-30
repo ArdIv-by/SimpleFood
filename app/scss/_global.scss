@@ -51,7 +51,7 @@ body {
   text-decoration-line: underline;
   color: $title-color;
   border-radius: 5px;
-  transition: color 0.5s, box-shadow 0.5s, text-shadow 0.5s, text-decoration-line 0.5s;
+  transition: color 0.5s, box-shadow 0.5s, text-shadow 0.5s, text-decoration-line 0.5s, opacity 0.5s;
 
   &:hover {
     color: $accent-color;
@@ -59,6 +59,7 @@ body {
 
   &:focus {
     box-shadow: 0 0 0 2px $accent-color;
+    opacity: 0.7;
   }
 
   &:active {
@@ -76,9 +77,7 @@ body {
    border-radius: 6px;
    color: $animation-color;
    background-color: $accent-color;
-   transition: background-color 0.5s,
-   box-shadow 0.5s,
-   color 0.5s;
+   transition: background-color 0.5s, box-shadow 0.5s, color 0.5s;
 
    &:hover,
    &:focus {
@@ -95,4 +94,22 @@ body {
      background-color: rgba(255, 122, 80, 0.1);
      color: $accent-color;
    }
+}
+
+.animation-logo {
+  border-radius: 5px;
+  transition: opacity 0.5s, box-shadow 0.5s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $accent-color;
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
 }

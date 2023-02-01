@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
 .header-top {
@@ -362,10 +363,10 @@
   height: 100%;
   border-radius: 10px;
   background-color: $animation-color;
-  transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s, opacity 0.5s;
 
   &:hover {
-    box-shadow: 0 3px 15px $accent-color;
+    box-shadow: 0 3px 15px rgba($accent-color, 0.5);
   }
 
   &__inner {
@@ -425,6 +426,173 @@
     }
   }
 }
+
+.review {
+  &__title {
+    text-align: center;
+    margin-bottom: 45px;
+  }
+}
+
+.slider {
+
+  &__item {
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 58px;
+  }
+
+  &__img {
+    border-radius: 50%;
+    margin-left: 70px;
+  }
+
+  &__quote {
+    max-width: 650px;
+    width: 100%;
+    margin-right: 69px;
+  }
+
+  &__blockquote {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    & svg {
+      width: 24px;
+      height: 19px;
+      fill: $input-color;
+    }
+
+    & p {
+      max-width: 570px;
+      width: 100%;
+      font-style: italic;
+    }
+
+    .svg-close {
+      margin-top: auto;
+      transform: scaleX(-1);
+    }
+  }
+
+  &__autor {
+    @extend %rubik-500;
+    line-height: 130%;
+    color: $accent-color;
+    margin-left: 40px;
+
+    & span {
+      display: block;
+      @extend %rubik-400;
+      font-size: 14px;
+      line-height: 130%;
+      color: $default-color;
+      margin-top: 15px;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(73px);
+    border: 3px solid $input-color;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.5s, border 0.5s, fill 0.5s, box-shadow 0.5s, opacity 0.5s;
+
+    & svg {
+      width: 19px;
+      height: 11px;
+      fill: $input-color;
+      transform: scale(1.5);
+    }
+
+    &:hover {
+      background-color: $sliderbg-color;
+      border: 3px solid $slider-color;
+
+      & svg {
+        fill: $slider-color;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($accent-color, 0.7);
+    }
+
+    &:active {
+      background-color: $social-link-bg;
+      border: 3px solid $social-link-bg;
+
+      & svg {
+        fill: $hover-color;
+      }
+    }
+
+    &--prev,
+    &--next {
+      border-radius: 50%;
+    }
+
+    &--prev {
+      left: 400px;
+    }
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & li {
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+
+      & button {
+        display: flex;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: $input-color;
+        font-size: 0;
+        transition: background-color 0.5s, box-shadow 0.5s;
+
+        &:hover {
+          background-color: $social-link-bg;
+          box-shadow: 0 0 0 2px rgba($hover-color, 0.7);
+        }
+
+        &:focus {
+          background-color: $input-color;
+          box-shadow: 0 0 0 2px $accent-color;
+        }
+
+        &:active {
+          background-color: $slider-color;
+        }
+      }
+    }
+
+    .slick-active {
+      & button {
+        background-color: $accent-color;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
 
 .footer {
   padding-top: 60px;

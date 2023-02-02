@@ -547,6 +547,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 12px;
 
     & li {
       &:not(:last-child) {
@@ -586,10 +587,42 @@
   }
 }
 
+.downloads {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
+  &__info {
+    max-width: 540px;
+    width: 100%;
+  }
 
+  &__title {
+    margin-bottom: 45px;
+  }
 
+  &__text {
+    margin-bottom: 30px;
+  }
 
+  &__img {
+    width: 570px;
+    height: 380px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__link-app {
+    margin-right: 30px;
+  }
+}
 
 
 

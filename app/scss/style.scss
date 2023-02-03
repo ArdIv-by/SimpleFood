@@ -2,6 +2,7 @@
 @import 'fonts';
 @import 'reset';
 @import 'libs';
+@import 'mixin';
 @import 'global';
 
 .header-top {
@@ -13,6 +14,10 @@
 
 .logo {
   margin-right: auto;
+
+  &__img {
+    object-fit: cover;
+  }
 }
 
 .menu {
@@ -84,15 +89,15 @@
 
   &__num {
     position: absolute;
-    padding: 3px;
+    padding: 2px 5px 2px 4px;
     height: 15px;
-    border-radius: 7px;
+    border-radius: 10px;
     background-color: $accent-color;
     top: 3px;
     left: 23px;
     font-size: 10px;
     color: $social-link-bg;
-    line-height: 14px;
+    line-height: 12px;
   }
 }
 
@@ -105,6 +110,11 @@
   &__info {
     max-width: 450px;
     margin-top: -10px;
+
+    & p {
+      margin-bottom: 27px;
+      @include line-clamp(3);
+    }
   }
 
   &__title {
@@ -118,15 +128,13 @@
   }
 
   &__img {
-    width: 560px;
+    max-width: 560px;
+    width: 100%;
     height: 660px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-  }
-
-  &__text {
-    margin-bottom: 27px;
+    object-fit: cover;
   }
 
   &__link-btn {
@@ -161,6 +169,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    white-space: nowrap;
     padding: 13px 32px;
     border-radius: 5px;
     background-color: $animation-color;
@@ -197,6 +206,29 @@
     }
   }
 
+  .mixitup-control-active {
+    background-color: $accent-color;
+    border-radius: 5px;
+    padding: 13px 32px;
+    color: $animation-color;
+
+    & svg {
+      fill: $animation-color;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $animation-color;
+      box-shadow: 0 0 0 2px $accent-color;
+      background-color: $accent-color;
+
+      & svg {
+        fill: $animation-color;
+      }
+    }
+  }
+
   &__content {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -205,34 +237,12 @@
   }
 }
 
-.mixitup-control-active {
-  background-color: $accent-color;
-  border-radius: 5px;
-  padding: 13px 32px;
-  color: $animation-color;
-
-  & svg {
-    fill: $animation-color;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: $animation-color;
-    box-shadow: 0 0 0 2px $accent-color;
-    background-color: $accent-color;
-
-    & svg {
-      fill: $animation-color;
-    }
-  }
-}
-
 .product-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 210px;
+  max-width: 210px;
+  width: 100%;
   height: 100%;
   padding: 20px 15px;
   background-color: $animation-color;
@@ -245,8 +255,9 @@
     box-shadow: 0 0 0 1px $accent-color;
   }
 
-  & img {
+  &__img {
     margin-bottom: 10px;
+    object-fit: cover;
   }
 
   &__text {
@@ -255,6 +266,7 @@
     line-height: 18px;
     color: $default-color;
     margin-bottom: 10px;
+    @include line-clamp(2);
   }
 
   &__price {
@@ -281,12 +293,14 @@
   }
 
   &__img {
-    width: 440px;
+    max-width: 440px;
+    width: 100%;
     height: 585px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     margin-left: 8px;
+    object-fit: cover;
   }
 
   &__info {
@@ -303,6 +317,10 @@
   &__title,
   &__text {
     margin-bottom: 30px;
+  }
+
+  &__text {
+    @include line-clamp(3);
   }
 
   &__list {
@@ -359,7 +377,8 @@
 
 .restorant-card {
   text-align: start;
-  width: 370px;
+  max-width: 370px;
+  width: 100%;
   height: 100%;
   border-radius: 10px;
   background-color: $animation-color;
@@ -369,14 +388,18 @@
     box-shadow: 0 3px 15px rgba($accent-color, 0.5);
   }
 
+  &__img {
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+  }
+
+  &__info {
+    padding: 18px 20px 20px 20px;
+  }
+
   &__inner {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px 20px;
-  }
-
-  &__img {
-    margin-bottom: 18px;
   }
 
   &__text {
@@ -384,23 +407,32 @@
     font-size: 24px;
     line-height: 130%;
     margin-bottom: 16px;
-    margin-left: 20px;
+    @include line-clamp(1);
   }
 
   &__time {
     font-size: 18px;
     line-height: 30px;
     opacity: 0.9;
+    padding-left: 32px;
+    position: relative;
 
-    & svg {
+    &::before {
+      content: '';
+      position: absolute;
       width: 22px;
       height: 22px;
-      vertical-align: middle;
-      margin-right: 5px;
+      left: 0;
+      top: 5px;
+      background-image: url('../images/sprite.svg#icon-time');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      filter: invert(13%) sepia(17%) saturate(678%) hue-rotate(42deg) brightness(94%) contrast(79%);
     }
   }
 
-  &__btn {
+  &__link {
     padding: 2px 32px;
     border-radius: 20px;
 
@@ -434,10 +466,10 @@
   }
 }
 
-.slider {
+.slider-review {
 
-  &__item {
-    display: flex !important;
+  &__inner {
+    display: flex;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 58px;
@@ -446,6 +478,7 @@
   &__img {
     border-radius: 50%;
     margin-left: 70px;
+    object-fit: cover;
   }
 
   &__quote {
@@ -458,22 +491,43 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
-
-    & svg {
-      width: 24px;
-      height: 19px;
-      fill: $input-color;
-    }
+    position: relative;
 
     & p {
-      max-width: 570px;
+      max-width: 590px;
       width: 100%;
       font-style: italic;
-    }
+      padding-left: 40px;
+      @include line-clamp(5);
 
-    .svg-close {
-      margin-top: auto;
-      transform: scaleX(-1);
+      &::before {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 19px;
+        left: 0;
+        top: 2px;
+        background-image: url('../images/sprite.svg#icon-quote-open');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: invert(77%) sepia(0%) saturate(0%) hue-rotate(135deg) brightness(102%) contrast(91%);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 19px;
+        right: 0;
+        bottom: 0;
+        transform: scaleX(-1);
+        background-image: url('../images/sprite.svg#icon-quote-open');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: invert(77%) sepia(0%) saturate(0%) hue-rotate(135deg) brightness(102%) contrast(91%);
+      }
     }
   }
 
@@ -490,6 +544,7 @@
       line-height: 130%;
       color: $default-color;
       margin-top: 15px;
+      @include line-clamp(1);
     }
   }
 
@@ -541,48 +596,57 @@
     &--prev {
       left: 400px;
     }
+
   }
+}
 
-  .slick-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 12px;
+.slick-disabled {
+  border: 3px solid $hover-color;
 
-    & li {
-      &:not(:last-child) {
-        margin-right: 15px;
-      }
+  & svg {
+    fill: $hover-color;
+  }
+}
 
-      & button {
-        display: flex;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: $input-color;
-        font-size: 0;
-        transition: background-color 0.5s, box-shadow 0.5s;
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
 
-        &:hover {
-          background-color: $social-link-bg;
-          box-shadow: 0 0 0 2px rgba($hover-color, 0.7);
-        }
-
-        &:focus {
-          background-color: $input-color;
-          box-shadow: 0 0 0 2px $accent-color;
-        }
-
-        &:active {
-          background-color: $slider-color;
-        }
-      }
+  & li {
+    &:not(:last-child) {
+      margin-right: 15px;
     }
 
-    .slick-active {
-      & button {
-        background-color: $accent-color;
+    & button {
+      display: flex;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: $input-color;
+      font-size: 0;
+      transition: background-color 0.5s, box-shadow 0.5s;
+
+      &:hover {
+        background-color: $social-link-bg;
+        box-shadow: 0 0 0 2px rgba($hover-color, 0.7);
       }
+
+      &:focus {
+        background-color: $input-color;
+        box-shadow: 0 0 0 2px $accent-color;
+      }
+
+      &:active {
+        background-color: $slider-color;
+      }
+    }
+  }
+
+  .slick-active {
+    & button {
+      background-color: $accent-color;
     }
   }
 }
@@ -601,10 +665,12 @@
 
   &__title {
     margin-bottom: 45px;
+    @include line-clamp(2);
   }
 
   &__text {
     margin-bottom: 30px;
+    @include line-clamp(3);
   }
 
   &__img {
@@ -613,6 +679,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    object-fit: cover;
   }
 
   &__link {
@@ -623,9 +690,6 @@
     margin-right: 30px;
   }
 }
-
-
-
 
 .footer {
   padding-top: 60px;
@@ -644,10 +708,15 @@
     margin-bottom: 30px;
   }
 
+  &__contacts {
+    font-style: normal;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(3, auto);
     grid-column-gap: 70px;
+    white-space: nowrap;
     max-width: 571px;
     width: 100%;
     margin-right: 70px;
@@ -663,6 +732,8 @@
 
   &__list-link {
     text-decoration-line: none;
+    white-space: nowrap;
+    @include line-clamp(1);
   }
 }
 
@@ -733,13 +804,9 @@
     position: relative;
   }
 
-  &__address,
-  &__phone,
-  &__mail {
+  &__link {
     text-decoration-line: none;
 
-    &::before,
-    &::before,
     &::before {
       content: '';
       position: absolute;
@@ -751,19 +818,20 @@
       background-size: contain;
       background-position: center;
     }
+
+    &--address::before {
+      background-image: url('../images/icons/icon-location.svg');
+    }
+
+    &--phone::before {
+      background-image: url('../images/icons/icon-call.svg');
+    }
+
+    &--mail::before {
+      background-image: url('../images/icons/icon-message.svg');
+    }
   }
 
-  .contacts__address::before {
-    background-image: url('../images/icons/icon-location.svg');
-  }
-
-  .contacts__phone::before {
-    background-image: url('../images/icons/icon-call.svg');
-  }
-
-  .contacts__mail::before {
-    background-image: url('../images/icons/icon-message.svg');
-  }
 }
 
 .contacts-social {
@@ -778,6 +846,7 @@
   }
 
   &__link {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -787,7 +856,9 @@
     border-radius: 50%;
     transition: background-color 0.5s, fill 0.5s, box-shadow 0.5s, opacity 0.5s;
 
+
     & svg {
+      position: absolute;
       width: 20px;
       height: 20px;
       fill: $default-color;

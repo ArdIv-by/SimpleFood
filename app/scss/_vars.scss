@@ -12,6 +12,11 @@ $resturent-color: #FF2222;
 $slider-color: #FFAE94;
 $sliderbg-color: #FFF2ED;
 
+$breakpoints: ("phone": 560px,
+  "tablet": 768px,
+  "tablet-2": 992px,
+  "desktop": 1230px);
+
 %text-style {
   font-size: 18px;
   line-height: 130%;

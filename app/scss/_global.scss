@@ -115,7 +115,8 @@ body {
 }
 
 .breadcrumbs {
-  background: rgba($hover-color, 0.1);
+  background-color: rgba($hover-color, 0.1);
+  
   &__list {
     display: flex;
     padding: 23px 0;
@@ -149,5 +150,55 @@ body {
     line-height: 120%;
     letter-spacing: 0.03em;
     color: $breadcrumbs-color;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__list {
+    display: flex;
+  }
+
+  &__link--active {
+    border: 1px solid $title-color;
+  }
+
+  &__prev,
+  &__next,
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: $filter-price;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  &__prev::before,
+  &__next::before {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 18px;
+    background-image: url('../images/sprite.svg#icon-left');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: invert(98%) sepia(0%) saturate(9%) hue-rotate(155deg) brightness(82%) contrast(87%);
+  }
+
+  &__next::before {
+    transform: rotate(-180deg);
+    filter: invert(18%) sepia(7%) saturate(2710%) hue-rotate(198deg) brightness(101%) contrast(88%);
+  }
+
+  &__prev,
+  &__item {
+    margin-right: 6px;
   }
 }

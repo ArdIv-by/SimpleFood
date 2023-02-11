@@ -1,0 +1,56 @@
+$accent-color: #FF6838;
+$link-color: #ECECEC;
+$input-color: #C2C2C2;
+$title-color: #363853;
+$default-color: #31352B;
+$bg-color: #F9FAFF;
+$hover-color: #FF7A50;
+$social-link-bg: #FFF2ED;
+$animation-color: #FFFFFF;
+$delivery-color: #00AAFF;
+$resturent-color: #FF2222;
+$slider-color: #FFAE94;
+$sliderbg-color: #FFF2ED;
+$breadcrumbs-color: #505050;
+$breadcrumbs-arrow: #C1C1C1;
+$filter-price: #FAEDED;
+$catalog-bg: #E5E5E5;
+
+$breakpoints: ("phone": 560px,
+  "tablet": 768px,
+  "tablet-2": 992px,
+  "desktop": 1200px);
+
+$burgerWidth: 44px;
+$burgerHeight: 44px;
+$burgerColor: $title-color;
+$burgerLineHeight: 10px;
+
+%text-style {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+%checkbox-hidden {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
+
+%rubik-300 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+}
+
+%rubik-400 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+}
+
+%rubik-500 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+}
+

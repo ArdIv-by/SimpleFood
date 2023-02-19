@@ -116,7 +116,7 @@ body {
 
 .breadcrumbs {
   background-color: rgba($hover-color, 0.1);
-  
+
   &__list {
     display: flex;
     padding: 23px 0;
@@ -158,6 +158,27 @@ body {
   justify-content: center;
   align-items: center;
 
+  &__item {
+    transition: box-shadow 0.5s;
+    border-radius: 3px;
+
+    &:hover {
+      .pagination__link {
+        color: $animation-color;
+        background-color: $accent-color;
+        border: none;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $accent-color;
+    }
+
+    &:active {
+      box-shadow: inset 0 -1px 4px 2px rgba(0, 0, 0, 0.15);
+    }
+  }
+
   &__list {
     display: flex;
   }
@@ -174,9 +195,11 @@ body {
     align-items: center;
     width: 48px;
     height: 48px;
+    color: $title-color;
     background-color: $filter-price;
     border-radius: 3px;
     position: relative;
+    transition: color 0.5s, background-color 0.5s, border 0.5s, box-shadow 0.5s;
   }
 
   &__prev::before,
@@ -189,7 +212,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    filter: invert(98%) sepia(0%) saturate(9%) hue-rotate(155deg) brightness(82%) contrast(87%);
+    filter: invert(99%) sepia(0%) saturate(971%) hue-rotate(160deg) brightness(82%) contrast(85%);
   }
 
   &__next::before {

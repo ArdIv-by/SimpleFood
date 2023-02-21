@@ -1,5 +1,15 @@
 $(function () {
 
+  $('.product-tabs__top-item').on('click', function (e) {
+    e.preventDefault();
+    $('.product-tabs__top-item').removeClass('product-tabs__top-item--active');
+    $(this).addClass('product-tabs__top-item--active');
+
+
+    $('.product-tabs__content-item').removeClass('product-tabs__content-item--active');
+    $($(this).attr('href')).addClass('product-tabs__content-item--active');
+  })
+
 
   $('.catalog__sort, .catalog__show, .product-item__num').styler();
 
@@ -25,12 +35,20 @@ $(function () {
     appendArrows: '.slider-review'
   });
 
-  $(".product-item__star").rateYo({
+  $(".product-item__star, .product-tabs__star").rateYo({
     starWidth: "16px",
     normalFill: "rgba(193, 193, 193, 0.3)",
     ratedFill: "#FFB800",
     spacing: "6px",
-    readOnly: true
+    readOnly: true,
+  });
+
+  $(".product-tabs__rating-star").rateYo({
+    starWidth: "16px",
+    normalFill: "#C1C1C1",
+    ratedFill: "#FFB800",
+    spacing: "6px",
+    readOnly: true,
   });
 
 });

@@ -138,7 +138,126 @@
           </div>
         </div>
 
-        <div class="product-info">
+        <div class="product-tabs">
+          <div class="product-tabs__top">
+            <a class="product-tabs__top-item product-tabs__top-item--active animation-link" href="#tab-1">Описание</a>
+            <a class="product-tabs__top-item animation-link" href="#tab-2">Характеристики</a>
+            <a class="product-tabs__top-item animation-link" href="#tab-3">Отзывы (2)</a>
+          </div>
+
+          <div class="product-tabs__content">
+            <div class="product-tabs__content-item product-tabs__content-item--active" id="tab-1">
+              <div class="product-tabs__about">
+                <p>Рубленый бифштекс из натуральной говядины на карамелизованной булочке, с ломтиком сыра «Чеддер»,
+                  кетчупом, горчицей,
+                  луком и маринованными огурчиками.</p>
+                <p>Аллергены: Глютен, Молоко, Горчица, Может содержать сою, яйцо, следы кунжута.</p>
+                <p>Внешний вид товара может отличаться от изображений, представленных на сайте.</p>
+              </div>
+            </div>
+
+            <div class="product-tabs__content-item" id="tab-2">
+              <div class="product-tabs__characteristics">
+                <p><span>Диаметр:</span> 20 см</p>
+                <p><span>Вес:</span> 300 гр</p>
+                <p><span>Калорийность (на 100г):</span> 295 ккал</p>
+                <p><span>Срок хранения:</span> до 3 дней</p>
+              </div>
+            </div>
+
+            <div class="product-tabs__content-item" id="tab-3">
+              <div class="product-tabs__reviews">
+                <h3 class="product-tabs__title">Мнения наших клиентов</h3>
+                <div class="product-tabs__comments">
+                  <div class="product-tabs__comments-top">
+                    <img class="product-tabs__img" src="images/content/comment.jpg" width="70" height="70"
+                      alt="Картинка профиля комментатора">
+
+                    <div class="product-tabs__comments-box">
+                      <p class="product-tabs__name">
+                        Андрей
+                      </p>
+                      <time class="product-tabs__time" datetime="2021-06-10">
+                        10.06.2021
+                      </time>
+                    </div>
+
+                    <div class="product-tabs__star" data-rateyo-rating="5">
+                    </div>
+                  </div>
+                  <div class="product-tabs__comments-bottom">
+                    Доставили быстро. Товар свежий и очень вкусный, буду пробовать еще!))
+                  </div>
+                </div>
+
+                <div class="product-tabs__comments">
+                  <div class="product-tabs__comments-top">
+                    <img class="product-tabs__img" src="images/content/comment.jpg" width="70" height="70"
+                      alt="Картинка профиля комментатора">
+
+                    <div class="product-tabs__comments-box">
+                      <p class="product-tabs__name">
+                        Екатерина Белая
+                      </p>
+                      <time class="product-tabs__time" datetime="2021-06-07">
+                        7.06.2021
+                      </time>
+                    </div>
+
+                    <div class="product-tabs__star" data-rateyo-rating="4">
+                    </div>
+                  </div>
+                  <div class="product-tabs__comments-bottom">
+                    этот бургер неплохой чтобы перекусить, когда нет возможности или времени что-нибудь приготовить. Это
+                    отличный вариант, чтобы съесть на ходу, но чтобы побаловать себя, я больше предпочту пиццу
+                  </div>
+                </div>
+              </div>
+
+              <form class="product-tabs__form" action="#">
+                <h3 class="product-tabs__title">Оставить отзыв</h3>
+                <div class="product-tabs__rating">
+                  <span>Ваша оценка *</span>
+                  <div class="product-tabs__rating-star" data-rateyo-rating="0">
+                  </div>
+                </div>
+
+                <div class="product-tabs__feedback">
+                  <div class="product-tabs__feedback-message">
+                    <label class="product-tabs__feedback-label" for="message">Ваш отзыв *</label>
+                    <textarea class="product-tabs__feedback-input product-tabs__feedback-input--area" id="message"
+                      name="message" required="required" placeholder="Введите текст отзыва"></textarea>
+                  </div>
+
+                  <div class="product-tabs__feedback-content">
+                    <div class="product-tabs__feedback-name">
+                      <label class="product-tabs__feedback-label" for="name">Имя</label>
+                      <input class="product-tabs__feedback-input" type="text" id="name" name="name" required="required"
+                        placeholder="Введите ваше имя">
+                    </div>
+
+                    <div class="product-tabs__feedback-name">
+                      <label class="product-tabs__feedback-label" for="mailto">Email *</label>
+                      <input class="product-tabs__feedback-input" type="mailto" id="mailto" name="mailto"
+                        required="required" placeholder="youremail@mail.com">
+                    </div>
+                  </div>
+                </div>
+
+                <label class="product-tabs__label">
+                  <input class="product-tabs__input" type="checkbox">
+                  <span class="product-tabs__checkbox"></span>
+                  <span class="product-tabs__text">Сохранить моё имя, email и адрес сайта в этом браузере для <br>
+                    последующих моих комментариев.</span>
+                </label>
+
+                <button class="product-tabs__btn animation-btn" type="submit">Оставить отзыв</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-interesting">
 
         </div>
       </div>
@@ -156,7 +275,7 @@
 
           <form class="form-subscribe" action="#">
             <label class="sr-only" for="name"></label>
-            <input class="form-subscribe__input" type="email" name="name" id="name" required="required"
+            <input class="form-subscribe__input" type="email" name="name"  required="required"
               placeholder="Ваш email">
             <button class="form-subscribe__btn animation-btn" type="submit">
               <svg>

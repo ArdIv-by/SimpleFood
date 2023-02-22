@@ -703,10 +703,6 @@
   }
 
   &__title {
-    @extend %rubik-500;
-    font-size: 36px;
-    line-height: 1.3;
-    color: $title-color;
     margin-bottom: 32px;
   }
 
@@ -917,7 +913,7 @@
   &__price {
     @extend %rubik-500;
     font-size: 15px;
-    line-height: 140%;
+    line-height: 1.4;
     color: $title-color;
     margin-top: auto;
     margin-bottom: 10px;
@@ -925,7 +921,7 @@
 
   &__btn {
     font-size: 14px;
-    line-height: 130%;
+    line-height: 1.3;
     padding: 7px 16px;
   }
 }
@@ -1204,6 +1200,76 @@
     padding: 12px 32px;
     letter-spacing: 0.03em;
     color: $animation-color;
+  }
+}
+
+.interesting-title {
+  margin-bottom: 60px;
+}
+
+.interesting-slider {
+
+  &__list {
+    display: flex !important;
+    justify-content: space-between;
+    padding: 1px;
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+    border: 3px solid $input-color;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.5s, border 0.5s, fill 0.5s, box-shadow 0.5s, opacity 0.5s;
+
+    & svg {
+      width: 18px;
+      height: 11px;
+      fill: $input-color;
+      transform: scale(1.5);
+    }
+
+    &:hover {
+      background-color: $sliderbg-color;
+      border: 3px solid $slider-color;
+
+      & svg {
+        fill: $slider-color;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($accent-color, 0.7);
+    }
+
+    &:active {
+      background-color: $social-link-bg;
+      border: 3px solid $social-link-bg;
+
+      & svg {
+        fill: $hover-color;
+      }
+    }
+
+    &--prev,
+    &--next {
+      border-radius: 50%;
+      top: -104px;
+    }
+
+    &--prev {
+      right: 60px;
+    }
+
+    &.slick-disabled {
+      border: 3px solid $hover-color;
+
+      & svg {
+        fill: $hover-color;
+      }
+    }
   }
 }
 
@@ -1557,14 +1623,13 @@
       left: 400px;
     }
 
-  }
-}
+    &.slick-disabled {
+      border: 3px solid $hover-color;
 
-.slick-disabled {
-  border: 3px solid $hover-color;
-
-  & svg {
-    fill: $hover-color;
+      & svg {
+        fill: $hover-color;
+      }
+    }
   }
 }
 

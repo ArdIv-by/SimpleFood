@@ -35,6 +35,13 @@ $(function () {
     appendArrows: '.slider-review'
   });
 
+  $('.interesting-slider').slick({
+    infinite: false,
+    prevArrow: '<button type="button" class="interesting-slider__arrow interesting-slider__arrow--prev"><svg><use xlink: href = "images/sprite.svg#icon-left"></use></svg><span class="lnr lnr-chevron-left"></span > </button>',
+    nextArrow: '<button type="button" class="interesting-slider__arrow interesting-slider__arrow--next"><svg><use xlink: href = "images/sprite.svg#icon-right"></use></svg><span class="lnr lnr-chevron-right"></span></button>',
+    appendArrows: '.interesting-slider'
+  });
+
   $(".product-item__star, .product-tabs__star").rateYo({
     starWidth: "16px",
     normalFill: "rgba(193, 193, 193, 0.3)",

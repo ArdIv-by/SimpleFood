@@ -13,6 +13,10 @@ body {
   flex-direction: column;
 }
 
+img {
+  object-fit: cover;
+}
+
 .main {
   flex-grow: 1;
 }

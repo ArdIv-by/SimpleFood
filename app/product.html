@@ -86,23 +86,43 @@
     <section class="product section">
       <div class="container">
         <div class="product-item">
-          <div class="product-item swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" style="width: 610;">
-                <img src="images/content/burger1.jpg" width="400" height="400" alt="Внешний вид продукта">
-              </div>
+          <div class="product-item__slider">
+            <a class="product-item__slider-link" href="#popup">
+              <img src="images/content/gallery-burger.jpg" width="400" height="400" alt="Внешний вид продукта">
+            </a>
 
-              <div class="swiper-slide">
-                <img src="images/content/burger1.jpg" width="400" height="400" alt="Внешний вид продукта">
-              </div>
+            <a class="product-item__slider-link" href="#popup">
+              <img src="images/content/gallery-burger.jpg" width="400" height="400" alt="Внешний вид продукта">
+            </a>
 
-              <div class="swiper-slide">
-                <img src="images/content/burger1.jpg" width="400" height="400" alt="Внешний вид продукта">
+            <a class="product-item__slider-link" href="#popup">
+              <img src="images/content/gallery-burger.jpg" width="400" height="400" alt="Внешний вид продукта">
+            </a>
+          </div>
+
+          <div id="popup" class="popup" style="background-color: rgba(0, 0, 0, 0.15);">
+            <div class="popup__body">
+              <div class="popup__content" style="background-color: #FFFFFF;">
+                <a class="popup__close close-popup" href="#">
+                  <svg>
+                    <use xlink:href="images/sprite.svg#icon-close-popup"></use>
+                  </svg>
+                </a>
+                <ul class="popup__slider">
+                  <li class="popup__item">
+                    <img src="images/content/gallery-burger.jpg" width="750" height="750" alt="Внешний вид продукта">
+                  </li>
+
+                  <li class="popup__item">
+                    <img src="images/content/gallery-burger.jpg" width="750" height="750" alt="Внешний вид продукта">
+                  </li>
+
+                  <li class="popup__item">
+                    <img src="images/content/gallery-burger.jpg" width="750" height="750" alt="Внешний вид продукта">
+                  </li>
+                </ul>
               </div>
             </div>
-
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
           </div>
 
           <div class="product-item__content">

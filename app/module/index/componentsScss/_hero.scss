@@ -1,0 +1,109 @@
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 58px;
+  margin-top: 159px;
+
+  &__info {
+    max-width: 450px;
+    margin-top: -10px;
+    z-index: 1;
+
+    @include mq('desktop') {
+      max-width: 420px;
+    }
+
+    @include mq('tablet-2') {
+      z-index: 2;
+      max-width: 370px;
+    }
+
+    @include mq('tablet') {
+      max-width: 320px;
+    }
+
+    & p {
+      margin-bottom: 27px;
+      @include line-clamp(3);
+    }
+  }
+
+  &__title {
+    font-size: 66px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include mq('desktop') {
+      font-size: 60px;
+    }
+
+    @include mq('tablet-2') {
+      font-size: 53px;
+    }
+
+    @include mq('tablet') {
+      font-size: 46px;
+    }
+
+    @include mq('phone') {
+      font-size: 40px;
+    }
+  }
+
+  &__subtitle {
+    color: $accent-color;
+
+    @include mq('desktop') {
+      font-size: 60px;
+    }
+
+    @include mq('tablet-2') {
+      font-size: 53px;
+    }
+
+    @include mq('tablet') {
+      font-size: 46px;
+    }
+
+    @include mq('phone') {
+      font-size: 40px;
+    }
+  }
+
+  &__text {
+    @include mq('tablet-2') {
+      font-size: 18px;
+    }
+
+    @include mq('phone') {
+      font-size: 16px;
+    }
+  }
+
+  &__img {
+    max-width: 560px;
+    width: 100%;
+    height: 660px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+
+    @include mq('desktop') {
+      height: 570px;
+    }
+
+    @include mq('tablet-2') {}
+
+    @include mq('tablet') {}
+
+    @include mq('phone') {}
+  }
+
+  &__link-btn {
+    @extend %text-style;
+    padding: 13px 34px;
+    margin-right: 28px;
+  }
+}

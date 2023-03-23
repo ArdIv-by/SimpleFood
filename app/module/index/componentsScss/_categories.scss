@@ -2,20 +2,83 @@
   text-align: center;
 
   &__title {
-    margin-bottom: 60px;
+    margin-bottom: 58px;
+    margin-left: 7px;
+    padding-top: 61px;
+
+    @include mq('tablet-2') {
+      margin-bottom: 50px;
+    }
+
+    @include mq('tablet') {
+      margin-bottom: 40px;
+    }
+
+    @include mqH('tablet') {
+      padding-top: 27px;
+      margin-bottom: 25px;
+    }
+
+    @include mq('phone') {
+      margin-right: 22px;
+      margin-bottom: 25px;
+      padding-top: 20px;
+    }
   }
 
   &__menu {
     margin-bottom: 45px;
+
+    @include mqH('tablet') {
+      margin-bottom: 15px;
+    }
+
+    @include mq('phone') {
+      margin-bottom: 15px;
+    }
   }
 
   &__list {
     display: flex;
+
+    @include mq('desktop') {
+      overflow-y: auto;
+      scroll-snap-type: y;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 15px;
+      padding-top: 5px;
+      padding-left: 1px;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+    }
+
+    @include mq('phone') {
+      overflow-y: auto;
+      scroll-snap-type: y;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 15px;
+      padding-top: 5px;
+      padding-left: 1px;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+    }
   }
 
   &__item {
     &:not(:last-child) {
       margin-right: 20px;
+
+      @include mq('phone') {
+        margin-right: 12px;
+      }
     }
   }
 
@@ -24,19 +87,49 @@
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-    padding: 13px 32px;
+    padding: 14px 32px;
     border-radius: 5px;
     background-color: $animation-color;
     color: $title-color;
-    line-height: 130%;
     box-shadow: 0 0 0 1px $link-color;
     transition: color 0.5s, background-color 0.5s, box-shadow 0.5s, fill 0.5s;
+
+    @include mq('tablet-2') {
+      font-size: 18px;
+      padding: 12px 25px;
+    }
+
+    @include mqH('tablet') {
+      font-size: 14px;
+      padding: 10px 15px;
+    }
+
+    @include mq('phone') {
+      font-size: 14px;
+      padding: 10px 15px;
+    }
 
     & svg {
       margin-right: 10px;
       width: 44px;
       height: 44px;
       fill: $title-color;
+
+      @include mq('tablet-2') {
+        width: 35px;
+        height: 35px;
+      }
+
+      @include mqH('tablet') {
+        width: 27px;
+        height: 27px;
+      }
+
+      @include mq('phone') {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
     }
 
     &:hover {
@@ -60,11 +153,29 @@
     }
   }
 
+  &__link {
+    @include mqH('tablet') {
+      font-size: 14px;
+    }
+  }
+
   .mixitup-control-active {
     background-color: $accent-color;
     border-radius: 5px;
-    padding: 13px 32px;
+    padding: 14px 32px;
     color: $animation-color;
+
+    @include mq('tablet-2') {
+      padding: 12px 25px;
+    }
+
+    @include mqH('tablet') {
+      padding: 10px 15px;
+    }
+
+    @include mq('phone') {
+      padding: 10px 15px;
+    }
 
     & svg {
       fill: $animation-color;
@@ -88,6 +199,34 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 30px;
     margin-bottom: 60px;
+
+    @include mq('desktop') {
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
+      margin-bottom: 53px;
+    }
+
+    @include mq('tablet-2') {
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 46px;
+    }
+
+    @include mq('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 38px;
+    }
+
+    @include mq('phone') {
+      margin-bottom: 30px;
+      grid-row-gap: 10px;
+      grid-column-gap: 5px;
+    }
+
+    @include mqH('phone') {
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 15px;
+      margin-bottom: 15px;
+    }
   }
 }
 
@@ -104,6 +243,24 @@
   border-radius: 5px;
   transition: background-color 0.5s, box-shadow 0.5s;
 
+  @include mq('desktop-2') {
+    width: 200px;
+  }
+
+  @include mq('desktop') {
+    width: 210px;
+  }
+
+  @include mqH('tablet') {
+    width: 145px;
+    height: 230px;
+    padding: 5px 5px;
+  }
+
+  @include mq('phone') {
+    width: 170px;
+  }
+
   &:hover {
     background-color: $animation-color;
     box-shadow: 0 0 0 1px $accent-color;
@@ -111,7 +268,11 @@
 
   &__img {
     margin-bottom: 10px;
-    object-fit: cover;
+
+    @include mqH('tablet') {
+      width: 100px;
+      height: 100px;
+    }
   }
 
   &__text {
@@ -121,6 +282,10 @@
     color: $default-color;
     margin-bottom: 10px;
     @include line-clamp(2);
+
+    @include mqH('tablet') {
+      font-size: 14px;
+    }
   }
 
   &__price {
@@ -130,6 +295,10 @@
     color: $title-color;
     margin-top: auto;
     margin-bottom: 10px;
+
+    @include mqH('tablet') {
+      font-size: 14px;
+    }
   }
 
   &__btn {

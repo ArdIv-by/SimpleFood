@@ -36,6 +36,82 @@
           </button>
         </li>
       </ul>
+
+      <button class="burger" type="button" id="body">
+        <span class="burger__line"></span>
+        <span class="sr-only">Открыть меню</span>
+      </button>
+
     </nav>
+  </div>
+  <div class="menu-burger">
+    <a class="menu-burger__logo animation-logo" href="#body">
+      <img class="menu-burger__logo-img" src="images/content/logo.svg" width="200" height="39" alt="Логотип">
+    </a>
+
+    <button class="menu-burger__close" type="button"></button>
+
+    <ul class="menu-burger__list">
+      <li class="menu-burger__item">
+        <a class="menu-burger__link animation-link menu-burger__link--active" href="#body">Главная</a>
+      </li>
+      <li class="menu-burger__item">
+        <a class="menu-burger__link animation-link" href="#categories">Блюда</a>
+      </li>
+      <li class="menu-burger__item">
+        <a class="menu-burger__link animation-link" href="#footer">Контакты</a>
+      </li>
+    </ul>
+
+    <address class="footer-top__contacts">
+      <ul class="contacts">
+        <li class="contacts__item">
+          <a class="contacts__link contacts__link--address animation-link" target="_blank" href="#">
+              ул. Т.Г.Шевченко, 1
+            </a>
+        </li>
+
+        <li class="contacts__item">
+          <a class="contacts__link contacts__link--phone animation-link" href="tel:380501112233">
+              380501112233
+            </a>
+        </li>
+
+        <li class="contacts__item">
+          <a class="contacts__link contacts__link--mail animation-link" href="mailto:support@sfood.com">
+              support@sfood.com
+            </a>
+        </li>
+      </ul>
+
+      <ul class="contacts-social">
+        <li class="contacts-social__item">
+          <a class="contacts-social__link" target="_blank" href="#">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-facebook"></use>
+            </svg>
+            <span class="sr-only">Мы в Facebook</span>
+          </a>
+        </li>
+
+        <li class="contacts-social__item">
+          <a class="contacts-social__link" target="_blank" href="#">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-twitter"></use>
+            </svg>
+            <span class="sr-only">Мы в Twitter</span>
+          </a>
+        </li>
+
+        <li class="contacts-social__item">
+          <a class="contacts-social__link" target="_blank" href="#">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-instagram"></use>
+            </svg>
+            <span class="sr-only">Мы в Instagram</span>
+          </a>
+        </li>
+      </ul>
+    </address>
   </div>
 </header>

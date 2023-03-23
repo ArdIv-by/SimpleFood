@@ -133,8 +133,8 @@ function cleanDist() {
 }
 
 function watching() {
-  watch(['app/scss/**/*.scss'], styles);
-  watch(['app/*.njk'], nunjucks);
+  watch(['app/**/*.scss'], styles);
+  watch(['app/module/*.njk'], nunjucks);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/images/icons/*.svg'], svgSprites);
   watch(['app/*.html']).on('change', browserSync.reload)

@@ -18,6 +18,20 @@
   }
 }
 
+@mixin mqH($height, $type: max) {
+  @if map_has_key($breakpoints, $height) {
+    $height: map_get($breakpoints, $height);
+
+    @if $type==max {
+      $height: $height - 1px;
+    }
+
+    @media only screen and (#{$type}-height: $height) {
+      @content;
+    }
+  }
+}
+
 @mixin line-clamp($lines: 1) {
   @if $lines <=1 {
     overflow: hidden;
@@ -35,19 +49,18 @@
 }
 
 @mixin burger {
-  display: none;
-  width: $burgerWidth; 
-  height: $burgerHeight; 
+  width: $burgerWidth;
+  height: $burgerHeight;
   position: relative;
-  color: $burgerColor; 
+  color: $burgerColor;
 
   &__line {
     position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    height: $burgerLineHeight; 
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: $burgerLineHeight;
     background-color: currentColor;
     transition: transform 0.3s ease-in-out;
   }
@@ -56,37 +69,20 @@
   &::after {
     content: "";
     position: absolute;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: 0;
+    width: 30px;
     height: $burgerLineHeight;
     background-color: currentColor;
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
   }
 
   &::before {
-    top: 0;
+    top: 10px;
   }
 
   &::after {
-    top: calc(100% - $burgerLineHeight);
-  }
-
-  &--active {
-    .burger__line {
-      transform: scale(0);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    &::before {
-      transform: rotate(45deg);
-      top: 50%;
-      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
-    }
-
-    &::after {
-      transform: rotate(-45deg);
-      top: 50%;
-      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
-    }
+    bottom: 10px;
   }
 }

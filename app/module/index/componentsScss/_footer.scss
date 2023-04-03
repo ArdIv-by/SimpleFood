@@ -34,6 +34,10 @@
     flex-wrap: wrap;
   }
 
+  @include mqH('tablet') {
+    margin-bottom: 15px;
+  }
+
   @include mq('phone') {
     justify-content: flex-start;
     margin-bottom: 46px;
@@ -330,6 +334,10 @@
   &__copy {
     font-size: 14px;
     line-height: 100%;
+  }
+
+  @include mqH('phone') {
+    padding: 10px 0;
   }
 
   @include mq('phone') {

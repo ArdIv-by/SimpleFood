@@ -116,20 +116,7 @@ $(function () {
     } else {
       $(".restorant__content.slick-initialized").slick("unslick");
     }
-    if ($(window).height() < 768) {
-      $('.restorant__content:not(.slick-initialized)').slick({
-        dots: true,
-        infinite: true,
-        arrows: false,
-        touchMove: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-    } else {
-      $(".restorant__content.slick-initialized").slick("unslick");
-    }
   });
-
 });
 
 

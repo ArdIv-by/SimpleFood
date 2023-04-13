@@ -1,0 +1,196 @@
+.restorant {
+  text-align: center;
+
+  &__title {
+    margin-bottom: 44px;
+    margin-right: 17px;
+
+    @include mq('tablet-2') {
+      margin-bottom: 40px;
+    }
+
+    @include mq('tablet') {
+      margin-bottom: 35px;
+    }
+
+    @include mqH('tablet') {
+      margin-right: 0;
+    }
+
+    @include mq('phone') {
+      margin-bottom: 30px;
+      margin-right: -1px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 30px;
+
+    @include mq('tablet-2') {
+      grid-template-columns: repeat(2, auto);
+      justify-content: space-around;
+      grid-gap: 15px;
+    }
+
+    @include mq('tablet') {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 30px;
+    }
+
+    @include mqH('tablet') {
+      grid-gap: 15px;
+
+      .slick-slide {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__items {
+    display: flex !important;
+    justify-content: center;
+  }
+
+  .slick-dots {
+    margin-bottom: 0;
+  }
+
+  .slick-list {
+    overflow: hidden;
+  }
+}
+
+.restorant-card {
+  text-align: start;
+  max-width: 370px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: $animation-color;
+  transition: box-shadow 0.5s, opacity 0.5s;
+
+  @include mqH('tablet') {
+    max-width: 250px;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 15px rgba($accent-color, 0.5);
+
+    @include mqH('tablet') {
+      box-shadow: none;
+    }
+  }
+
+  &__img {
+    border-radius: 10px 10px 0 0;
+
+    @include mqH('tablet') {
+      width: 250px;
+      height: 180px;
+    }
+  }
+
+  &__info {
+    padding: 18px 20px 20px 20px;
+
+    @include mqH('tablet') {
+      padding: 10px 15px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    @include line-clamp(1);
+
+    @include mqH('tablet') {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__time {
+    font-size: 18px;
+    line-height: 30px;
+    opacity: 0.9;
+    padding-left: 32px;
+    position: relative;
+
+    @include mqH('tablet') {
+      font-size: 14px;
+      padding-left: 22px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      left: 0;
+      top: 5px;
+      background-image: url('../images/sprite.svg#icon-time');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      filter: invert(13%) sepia(17%) saturate(678%) hue-rotate(42deg) brightness(94%) contrast(79%);
+
+      @include mqH('tablet') {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__link {
+    padding: 2px 32px;
+    border-radius: 20px;
+
+    @include mqH('tablet') {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1px 20px;
+      border-radius: 10px;
+    }
+
+    & svg {
+      width: 14px;
+      height: 12px;
+      fill: $animation-color;
+      transition: transform 0.5s;
+
+      @include mqH('tablet') {
+        width: 10px;
+        height: 8px;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      & svg {
+        fill: $accent-color;
+      }
+    }
+
+    &:hover {
+      & svg {
+        transform: translateX(20px);
+
+        @include mqH('tablet') {
+          transform: translateX(15px);
+        }
+      }
+    }
+  }
+}

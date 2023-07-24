@@ -13,7 +13,7 @@
       margin-right: 20px;
     }
 
-    @include mq('tablet') {
+    @include mq('phone') {
       margin-right: 0;
     }
   }
@@ -74,7 +74,7 @@
       height: 200px;
     }
 
-    @include mq('phone') {
+    @include mq('phone-2') {
       display: none;
     }
   }

@@ -5,50 +5,19 @@ const {
   parallel,
   series
 } = require('gulp');
+
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify-es').default;
+const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
-const uglify = require('gulp-uglify');
+const clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
 const rename = require('gulp-rename');
 const nunjucksRender = require('gulp-nunjucks-render');
 const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
-const del = require('del');
-const browserSync = require('browser-sync').create();
-
-function browsersync() {
-  browserSync.init({
-    server: {
-      baseDir: 'app/'
-    },
-    notify: false
-  })
-}
-
-function nunjucks() {
-  return src('app/module/*.njk')
-    .pipe(nunjucksRender())
-    .pipe(dest('app'))
-    .pipe(browserSync.stream())
-};
-
-function styles() {
-  return src('app/scss/*.scss')
-    .pipe(scss({
-      outputStyle: 'compressed'
-    }))
-    .pipe(rename({
-      suffix : '.min'
-    }))
-    .pipe(autoprefixer({
-      overrideBrowserslist: ['last 10 versions'],
-      grid: true
-    }))
-    .pipe(dest('app/css'))
-    .pipe(browserSync.stream())
-}
 
 function scripts() {
   return src([
@@ -63,6 +32,29 @@ function scripts() {
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('app/js'))
+    .pipe(browserSync.stream())
+}
+
+function styles() {
+  return src('app/scss/*.scss')
+    .pipe(scss({
+      outputStyle: 'compressed'
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(autoprefixer({
+      overrideBrowserslist: ['last 10 versions'],
+      grid: true
+    }))
+    .pipe(dest('app/css'))
+    .pipe(browserSync.stream())
+}
+
+function nunjucks() {
+  return src('app/module/*.njk')
+    .pipe(nunjucksRender())
+    .pipe(dest('app'))
     .pipe(browserSync.stream())
 }
 
@@ -90,6 +82,7 @@ function images() {
       })
     ]))
     .pipe(dest('dist/images'))
+    .pipe(browserSync.stream())
 }
 
 function svgSprites() {
@@ -114,10 +107,16 @@ function svgSprites() {
         },
       })
     )
-    .pipe(dest('app/images'));
+    .pipe(dest('app/images'))
+    .pipe(browserSync.stream())
 }
 
-function build() {
+function cleanDist() {
+  return src('dist')
+    .pipe(clean())
+}
+
+function building() {
   return src([
       'app/**/*.html',
       'app/css/style.min.css',
@@ -128,30 +127,27 @@ function build() {
     .pipe(dest('dist'))
 }
 
-function cleanDist() {
-  return del('dist')
-}
 
 function watching() {
+  browserSync.init({
+    server: {
+      baseDir: 'app/'
+    },
+    notify: false
+  })
   watch(['app/**/*.scss'], styles);
   watch(['app/module/*.njk'], nunjucks);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/images/icons/*.svg'], svgSprites);
-  watch(['app/*.html']).on('change', browserSync.reload)
+  watch(['app/module/**/*.html']).on('change', browserSync.reload);
 }
-
-
-
 
 exports.styles = styles;
 exports.scripts = scripts;
-exports.browsersync = browsersync;
 exports.watching = watching;
 exports.images = images;
 exports.nunjucks = nunjucks;
 exports.svgSprites = svgSprites;
-exports.cleanDist = cleanDist;
-exports.build = series(cleanDist, images, build);
 
-
-exports.default = parallel(nunjucks, svgSprites, styles, scripts, browsersync, watching)
+exports.build = series(cleanDist, images, building);
+exports.default = parallel(nunjucks, svgSprites, styles, scripts, watching);

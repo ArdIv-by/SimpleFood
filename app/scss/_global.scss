@@ -11,27 +11,52 @@ body {
   @extend %rubik-400;
   display: flex;
   flex-direction: column;
-}
 
-body.lock {
-  overflow: hidden;
-  position: relative;
-  height: auto;
+  &.lock {
+    overflow: hidden;
+    position: relative;
+    height: auto;
 
-  .header {
-    background-color: transparent;
+    .header,
+    .catalog {
+      background-color: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+  &.lock2 {
+    overflow: hidden;
+    position: relative;
+    height: auto;
+
+    .header,
+    .catalog {
+      background-color: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
   }
 }
+
 
 img {
   object-fit: cover;
@@ -174,6 +199,24 @@ img {
   background-color: rgba($hover-color, 0.1);
   margin-top: 159px;
 
+  @include mq('desktop') {
+    margin-top: 130px;
+  }
+
+  @include mq('tablet-2') {
+    margin-top: 100px;
+  }
+
+  @include mq('tablet') {
+    margin-top: 78px;
+    margin-bottom: 20px;
+  }
+
+  @include mq('phone') {
+    margin-top: 62px;
+
+  }
+
   &__list {
     display: flex;
     padding: 23px 0;
@@ -204,7 +247,7 @@ img {
 
   &__link {
     font-size: 14px;
-    line-height: 120%;
+    line-height: 1.2;
     letter-spacing: 0.03em;
     color: $breadcrumbs-color;
   }
@@ -214,6 +257,13 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &__item2,
+  &__item9 {
+    @include mq('phone-2') {
+      display: none;
+    }
+  }
 
   &__item {
     transition: box-shadow 0.5s;

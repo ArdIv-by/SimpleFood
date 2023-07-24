@@ -6,7 +6,6 @@ $(function () {
     $('.product-tabs__top-item').removeClass('product-tabs__top-item--active');
     $(this).addClass('product-tabs__top-item--active');
 
-
     $('.product-tabs__content-item').removeClass('product-tabs__content-item--active');
     $($(this).attr('href')).addClass('product-tabs__content-item--active');
   });
@@ -102,7 +101,6 @@ $(function () {
     $('.header').toggleClass('active', $(this).scrollTop() > 0);
   });
 
-
   $(window).on('load resize', function () {
     if ($(window).width() < 768) {
       $('.restorant__content:not(.slick-initialized)').slick({
@@ -117,15 +115,34 @@ $(function () {
       $(".restorant__content.slick-initialized").slick("unslick");
     }
   });
+
+  $(window).on('load resize', function () {
+    if ($(window).width() < 830) {
+      $('.discounts__items:not(.slick-initialized)').slick({
+        dots: true,
+        infinite: true,
+        arrows: false,
+        touchMove: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      });
+    } else {
+      $(".discounts__items.slick-initialized").slick("unslick");
+    }
+  });
 });
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
   const burger = document.querySelector('.burger');
+  const burger2 = document.querySelector('.burger2 svg');
   const menuburger = document.querySelector('.menu-burger');
+  const menuburger2 = document.querySelector('.menu-burger2');
   const bodyLock = document.querySelector('body');
+  const bodyLock2 = document.querySelector('body');
   const closeburger = document.querySelector('.menu-burger__close');
+  const closeburger2 = document.querySelector('.menu-burger2__close');
 
   burger.addEventListener('click', () => {
     menuburger.classList.toggle('menu-burger--active');
@@ -136,10 +153,23 @@ document.addEventListener('DOMContentLoaded', () => {
       bodyLock.classList.remove('lock');
     }
   });
+  burger2.addEventListener('click', () => {
+    menuburger2.classList.toggle('menu-burger2--active');
+    bodyLock2.classList.toggle('lock2');
+    if (menuburger2.classList.contains('menu-burger2--active')) {
+      bodyLock2.classList.add('lock2');
+    } else {
+      bodyLock2.classList.remove('lock2');
+    }
+  });
 
   closeburger.addEventListener('click', () => {
     menuburger.classList.remove('menu-burger--active');
     bodyLock.classList.remove('lock');
+  });
+  closeburger2.addEventListener('click', () => {
+    menuburger2.classList.remove('menu-burger2--active');
+    bodyLock2.classList.remove('lock2');
   });
 
   document.addEventListener('click', function (e) {
@@ -147,6 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
       burger.classList.remove('burger--active');
       menuburger.classList.remove('menu-burger--active');
       bodyLock.classList.remove('lock');
+    }
+    if (e.target !== burger2 && e.target !== menuburger2) {
+      burger2.classList.remove('burger2--active');
+      menuburger2.classList.remove('menu-burger2--active');
+      bodyLock2.classList.remove('lock2');
     }
   });
 });
